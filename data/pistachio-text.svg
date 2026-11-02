@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Pistachio Text: a page of code lines in the editor's colours with a pistachio text cursor, on the suite's green-black tile (Theme colours), drawn like pistachio-fm's and pistachio-notes' icons -->
+  <rect x="8" y="8" width="240" height="240" rx="56" fill="#1D2016" stroke="#39412A" stroke-width="4"/>
+  <rect x="60" y="40" width="132" height="172" rx="22" fill="#2A2F1F"/>
+  <g stroke-width="12" stroke-linecap="round">
+    <line x1="86" y1="80" x2="112" y2="80" stroke="#AC8ED0"/>
+    <line x1="126" y1="80" x2="166" y2="80" stroke="#7DA3B3"/>
+    <line x1="104" y1="110" x2="150" y2="110" stroke="#7FC9A8"/>
+    <line x1="104" y1="140" x2="124" y2="140" stroke="#E0B15E"/>
+    <line x1="86" y1="170" x2="116" y2="170" stroke="#A3B08F"/>
+  </g>
+  <circle cx="182" cy="186" r="44" fill="#9FD88A" stroke="#1D2016" stroke-width="8"/>
+  <path d="M182 164v44M170 164h24M170 208h24" fill="none" stroke="#15170F" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

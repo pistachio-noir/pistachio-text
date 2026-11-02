@@ -1,0 +1,18 @@
+# CMake build output (cmake -S . -B build), and the build folders IDEs make
+/build/
+/build-*/
+/cmake-build-*/
+
+# Qt Creator's per-user project settings
+CMakeLists.txt.user*
+
+# clangd's index, and its compile database when linked into the root
+/.cache/
+/compile_commands.json
+
+# Claude Code: personal settings (shared ones go in .claude/settings.json)
+/.claude/settings.local.json
+
+# editors' swap and backup files
+*.swp
+*~

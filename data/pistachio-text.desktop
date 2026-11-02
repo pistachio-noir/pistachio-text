@@ -1,0 +1,32 @@
+# Pistachio Text's desktop entry. `cmake --install build --prefix ~/.local` puts it in
+# ~/.local/share/applications (and the app in ~/.local/bin), where launchers find it.
+#
+# The installed copy runs the app by its full path (~/.local/bin/pistachio-text): launchers start
+# apps with the session's PATH, which needn't hold ~/.local/bin (the Pistachio shell's doesn't).
+#
+# To try it before installing, copy it there and point Exec and TryExec at the build:
+#   Exec=/home/sx/Desktop/pistachio-text/build/pistachio-text %F
+#
+# To make it the app that opens text files (your call, and reversible):
+#   xdg-mime default pistachio-text.desktop text/plain
+# and back to what you had: xdg-mime default <the other app>.desktop text/plain
+
+[Desktop Entry]
+Type=Application
+Name=Pistachio Text
+GenericName=Text Editor
+Comment=Edit text and code in Pistachio Noir
+Keywords=text;editor;code;notepad;pistachio;
+# %F: one file path (or the files FM's Open with hands over; the first opens)
+Exec=pistachio-text %F
+# hides the entry while the app isn't there
+TryExec=pistachio-text
+# installed to hicolor/scalable/apps (the shell only finds hicolor icons, suite gotcha G-19)
+Icon=pistachio-text
+Terminal=false
+StartupNotify=true
+Categories=Utility;TextEditor;Qt;
+# offered for text under "Open with"
+MimeType=text/plain;text/x-c;text/x-c++;text/x-chdr;text/x-c++hdr;text/x-python;text/x-rust;text/x-shellscript;text/x-script;text/markdown;application/json;application/xml;text/css;text/html;application/x-shellscript;
+# the Wayland app id (QGuiApplication::setDesktopFileName), for Hyprland window rules
+StartupWMClass=pistachio-text
