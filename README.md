@@ -81,3 +81,7 @@ The screenshot check writes images to `build/shots/`. `TESTING.md` lists additio
 ## License
 
 Pistachio Text is licensed under the GNU General Public License v3.0 only. See [LICENSE](LICENSE).
+
+## Development note
+
+This app was written with the assistance of Claude Code.
