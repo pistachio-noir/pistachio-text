@@ -8,6 +8,10 @@
 
 Pistachio Text is a single-document desktop editor built with Qt Quick (QML) and C++. It uses KDE's KSyntaxHighlighting for language-aware colours and provides matching Open and Save as dialogs.
 
+## Showcase
+
+![Pistachio Text editor showing C++ source code](showcase.png)
+
 ## Features
 
 - Syntax highlighting for languages supported by KSyntaxHighlighting

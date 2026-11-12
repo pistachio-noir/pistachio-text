@@ -19,3 +19,6 @@ CMakeLists.txt.user*
 
 # Preserve the previous README locally without publishing it
 README.backup.md
+
+# Generated social preview assets
+/socialpreviews/
