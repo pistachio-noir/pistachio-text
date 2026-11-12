@@ -16,3 +16,6 @@ CMakeLists.txt.user*
 # editors' swap and backup files
 *.swp
 *~
+
+# Preserve the previous README locally without publishing it
+README.backup.md
