@@ -62,7 +62,7 @@ xdg-mime default pistachio-text.desktop text/plain
 | `Ctrl+mouse wheel` | Zoom text |
 | `Ctrl+W` / `Ctrl+Q` | Close; asks about unsaved changes |
 
-In the Open and Save as dialogs, type to filter files. Enter a path beginning with `/` or `~` and press Enter to navigate. Use Up/Down to select, Enter to open, Esc to close, and Ctrl+H to show hidden files.
+In the file dialogs, use the Up and Home buttons to navigate, or press Ctrl+L to enter a folder path. Save as also accepts paths relative to the current folder. In Open, typing filters the list; enter an absolute path or a path beginning with `~` to navigate. Use Up/Down to select, Enter to open, Esc to close, and Ctrl+H to show hidden files.
 
 ## Development checks
 

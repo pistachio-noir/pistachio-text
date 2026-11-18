@@ -186,6 +186,12 @@ int main(int argc, char *argv[])
     rows = saveDialog->property("rows").toList();
     check(rows.size() == 3 && saveDialog->property("fileName").toString() == "count_lines.rs", "Save as: folders only, the file's name");
     grab("save.png");
+    QTest::keyClick(window, Qt::Key_L, Qt::ControlModifier);
+    type(window, "drafts");
+    QTest::keyClick(window, Qt::Key_Return);
+    check(saveDialog->property("folder").toString() == notes + "/drafts", "Save as can navigate by path without changing the file name");
+    check(saveDialog->property("fileName").toString() == "count_lines.rs", "path navigation keeps the file name");
+    QMetaObject::invokeMethod(saveDialog, "go", Q_ARG(QString, notes));
     // saving over another file asks; saving under a new name doesn't
     QMetaObject::invokeMethod(window, "saveTo", Q_ARG(QString, notes), Q_ARG(QString, "todo.md"));
     check(waitFor([&] { return visible(confirm); }), "replacing a file asks first");

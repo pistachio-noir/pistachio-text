@@ -5,7 +5,7 @@ import QtQuick.Controls.Basic as Controls
 
 // The Open file and Save as boards: one card over the dimmed window with the folder's entries. Open
 // lists files too and its path pill filters them as you type (a typed / or ~ path + Enter goes
-// there); Save as lists folders only and asks for a file name. Enter takes the picked row (a folder
+// there); Save as lists folders only, accepts a folder path and asks for a file name. Enter takes the picked row (a folder
 // opens, a file is chosen); Ctrl+H shows dotfiles. picked(folder, name) is the answer.
 Controls.Popup {
     id: root
@@ -120,6 +120,12 @@ Controls.Popup {
         spacing: 14
 
         Shortcut {
+            sequence: "Ctrl+L"
+            enabled: root.opened
+            onActivated: { pill.forceActiveFocus(); pill.selectAll(); }
+        }
+
+        Shortcut {
             sequence: "Ctrl+H"
             enabled: root.opened
             onActivated: {
@@ -232,8 +238,23 @@ Controls.Popup {
                 font.capitalization: Font.AllUppercase
             }
 
-            Rectangle {
+            Row {
                 width: parent.width
+                spacing: 6
+
+                IconButton {
+                    icon: Icons.chevronUp
+                    label: "Parent folder"
+                    enabled: lister.parentOf(root.folder) !== root.folder
+                    onClicked: root.go(lister.parentOf(root.folder))
+                }
+                IconButton {
+                    icon: Icons.home
+                    label: "Home folder"
+                    onClicked: root.go(lister.folderFor("~"))
+                }
+                Rectangle {
+                width: parent.width - 100
                 height: 44
                 radius: 22
                 color: Theme.bg
@@ -247,7 +268,7 @@ Controls.Popup {
                     color: Theme.subtext
                 }
 
-                // Open: the folder shown until you type; Save as: just the folder
+                // The current folder is shown until a filter or path is typed.
                 TextInput {
                     id: pill
                     anchors {
@@ -257,7 +278,6 @@ Controls.Popup {
                         rightMargin: 16
                         verticalCenter: parent.verticalCenter
                     }
-                    readOnly: root.saving
                     clip: true
                     selectByMouse: true
                     color: Theme.text
@@ -269,9 +289,8 @@ Controls.Popup {
                     cursorDelegate: Rectangle {
                         width: 2
                         color: Theme.pistachio
-                        visible: !root.saving
                     }
-                    Accessible.name: root.saving ? "Folder" : "Filter files, or type a folder path"
+                    Accessible.name: root.saving ? "Folder path" : "Filter files, or type a folder path"
 
                     Text {
                         visible: pill.text === ""
@@ -282,12 +301,14 @@ Controls.Popup {
                         font: pill.font
                     }
 
-                    onTextEdited: root.filter = text
+                    onTextEdited: if (!root.saving) root.filter = text
                     onAccepted: {
-                        const typed = lister.folderFor(text);
+                        const path = root.saving && text !== "" && !text.startsWith("/") && !text.startsWith("~")
+                            ? root.folder + "/" + text : text;
+                        const typed = lister.folderFor(path);
                         if (typed !== "")
                             root.go(typed);
-                        else
+                        else if (!root.saving)
                             root.accept();
                     }
                     Keys.onUpPressed: root.move(-1)
@@ -299,6 +320,7 @@ Controls.Popup {
                             root.filter = "";
                         }
                     }
+                }
                 }
             }
         }

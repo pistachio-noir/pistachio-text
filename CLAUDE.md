@@ -14,6 +14,7 @@ Single-document text and code editor for the Pistachio suite. QML + C++/Qt 6, as
 - Highlighting is KSyntaxHighlighting, mapped onto Theme colours (lavender keyword, sageBlue function, gold type, teal string, italic subtext comment).
 - Departures from the boards (look needs the owner's sign-off by screenshot): `ConfirmDialog` (starts on Cancel; unsaved changes on Open and close, overwrite on Save as), `QuickBar` (one row under the toolbar that serves both Find, Ctrl+F, and Go to line, Ctrl+G; it replaced the planned separate FindBar and GotoPopup), the terracotta error line in the status bar. List any further departure here.
 - Lines are the font's own height (about 18 px at 13 px text), not the board's 22 px: `TextEdit` has no line height, and setting one per block would put a step on the undo stack with every zoom.
+- Open and Save as include Up and Home buttons and an editable folder path (Ctrl+L); this navigation bar departs from the original boards.
 - Open and Save as are one component, `FileDialog.qml` (`saving: true` for Save as); the two boards differ only in the file-name field, the folders-only list and the button.
 - Find has no match highlighting beyond the selection of the current match (Enter next, Shift+Enter previous, wraps).
 - Ctrl+wheel zoom is `src/WheelZoom` (an app-wide event filter), not a QML WheelHandler: WheelHandlers on the editor passed the simulated tests but never zoomed with the owner's real mouse (2026-11-02). `PTX_DEBUG_WHEEL=1` logs each wheel event the window gets.

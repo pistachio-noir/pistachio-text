@@ -8,6 +8,7 @@ QtObject {
     readonly property list<string> folder: ["M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2z"]
     readonly property list<string> folderOpen: ["M6 14l1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"]
     readonly property list<string> save: ["M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z", "M17 21v-8H7v8", "M7 3v5h8"]
+    readonly property list<string> home: ["M3 10l9-7 9 7", "M5 9v11h14V9", "M9 20v-7h6v7"]
     readonly property list<string> chevronLeft: ["M15 18l-6-6 6-6"]
     readonly property list<string> chevronUp: ["M18 15l-6-6-6 6"]
     readonly property list<string> chevronDown: ["M6 9l6 6 6-6"]
