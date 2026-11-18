@@ -1,0 +1,15 @@
+<RCC><qresource prefix="/qt/qml/Pistachio/Text">
+<file alias="qmldir">qmldir</file>
+<file alias="Main.qml">../qml/Main.qml</file>
+<file alias="Theme.qml">../qml/Theme.qml</file>
+<file alias="Icons.qml">../qml/Icons.qml</file>
+<file alias="Icon.qml">../qml/Icon.qml</file>
+<file alias="Shadow.qml">../qml/Shadow.qml</file>
+<file alias="IconButton.qml">../qml/IconButton.qml</file>
+<file alias="PillButton.qml">../qml/PillButton.qml</file>
+<file alias="DialogButton.qml">../qml/DialogButton.qml</file>
+<file alias="ThinScrollBar.qml">../qml/ThinScrollBar.qml</file>
+<file alias="FileDialog.qml">../qml/FileDialog.qml</file>
+<file alias="ConfirmDialog.qml">../qml/ConfirmDialog.qml</file>
+<file alias="QuickBar.qml">../qml/QuickBar.qml</file>
+</qresource></RCC>

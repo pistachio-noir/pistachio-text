@@ -4,7 +4,7 @@
 
 Single-document text and code editor for the Pistachio suite. QML + C++/Qt 6, as `pistachio-fm` and `pistachio-notes`. Plan: `docs/plan.md`. Boards: `design/canvas-source/` (`Main`, `Open`, `Save`).
 
-**Status (2026-11-02): v1 built (milestones 1-4); 11 backend tests, 38 screenshot checks and qmllint pass. Not hand-tested by the owner yet (`TESTING.md`).** Build: `cmake -S . -B build -G Ninja && cmake --build build`; run `build/pistachio-text [file]`; checks `QT_QPA_PLATFORM=offscreen build/tst_backend` and `build/ptx-shots build/shots`.
+**Status (2026-11-02): v1 built (milestones 1-4); 11 backend tests, 38 screenshot checks and qmllint pass. Not hand-tested by the owner yet (`TESTING.md`).** Build: `CC=clang CXX=clang++ meson setup build-meson --prefix="$HOME/.local" && meson compile -C build-meson`; run `build-meson/pistachio-text [file]`; checks `meson test -C build-meson` and `QT_QPA_PLATFORM=offscreen build-meson/ptx-shots build-meson/shots`.
 
 ## Decisions (already made)
 

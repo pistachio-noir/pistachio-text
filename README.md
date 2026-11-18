@@ -24,7 +24,7 @@ Pistachio Text is a single-document desktop editor built with Qt Quick (QML) and
 
 ## Requirements
 
-- CMake 3.21 or newer
+- Meson, Clang, CMake (for discovering KF6)
 - Qt 6.9 or newer: Core, Gui, Qml, Quick, and Test
 - KF6 Syntax Highlighting
 - Ninja
@@ -32,15 +32,15 @@ Pistachio Text is a single-document desktop editor built with Qt Quick (QML) and
 ## Build and run
 
 ```sh
-cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo
-cmake --build build
-./build/pistachio-text [file]
+CC=clang CXX=clang++ meson setup build-meson --prefix="$HOME/.local"
+meson compile -C build-meson
+./build-meson/pistachio-text [file]
 ```
 
 Install to `~/.local`:
 
 ```sh
-cmake --install build --prefix ~/.local
+./install.sh
 ```
 
 The install includes the application, desktop launcher, and icon. To set it as the default plain-text editor:
@@ -67,12 +67,11 @@ In the Open and Save as dialogs, type to filter files. Enter a path beginning wi
 ## Development checks
 
 ```sh
-QT_QPA_PLATFORM=offscreen build/tst_backend
-QT_QPA_PLATFORM=offscreen build/ptx-shots build/shots
-cmake --build build --target all_qmllint
+meson test -C build-meson --print-errorlogs
+QT_QPA_PLATFORM=offscreen build-meson/ptx-shots build-meson/shots
 ```
 
-The screenshot check writes images to `build/shots/`. `TESTING.md` lists additional manual checks.
+The screenshot check writes images to `build-meson/shots/`. `TESTING.md` lists additional manual checks.
 
 ## Project layout
 

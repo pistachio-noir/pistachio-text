@@ -1,4 +1,4 @@
-# CMake build output (cmake -S . -B build), and the build folders IDEs make
+# Meson and legacy CMake build output, including IDE build folders
 /build/
 /build-*/
 /cmake-build-*/

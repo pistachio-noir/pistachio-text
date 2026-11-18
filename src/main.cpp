@@ -3,9 +3,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QUrl>
-#include <QtQml/QQmlExtensionPlugin>
 
-Q_IMPORT_QML_PLUGIN(Pistachio_TextPlugin)
 
 int main(int argc, char *argv[])
 {

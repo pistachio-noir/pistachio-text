@@ -12,9 +12,7 @@
 #include <QQuickWindow>
 #include <QTemporaryDir>
 #include <QTest>
-#include <QtQml/QQmlExtensionPlugin>
 
-Q_IMPORT_QML_PLUGIN(Pistachio_TextPlugin)
 
 namespace {
 
