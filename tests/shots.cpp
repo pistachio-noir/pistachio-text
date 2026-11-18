@@ -123,6 +123,13 @@ int main(int argc, char *argv[])
     QTest::qWait(300);
     check(doc->property("line").toInt() == 6 && doc->property("column").toInt() == 25, "Ln 6, Col 25 as on the board");
     grab("main.png");
+    QDir().mkpath(config.path() + "/pistachio");
+    QTest::qWait(100);
+    write(config.path() + "/pistachio/shared-theme", "noir\n");
+    check(waitFor([&] { return window->color() == QColor("#1A1A1A"); }), "Noir applies live");
+    grab("noir.png");
+    write(config.path() + "/pistachio/shared-theme", "pistachio\n");
+    check(waitFor([&] { return window->color() == QColor("#1D2016"); }), "Pistachio applies live");
 
     check(std::abs(window->property("rowHeight").toDouble() * editor->property("lineCount").toInt() - editor->property("contentHeight").toDouble()) < 0.01,
         "the line numbers and the chip step as far as the text's lines do");

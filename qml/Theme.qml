@@ -4,23 +4,25 @@ import QtQuick
 
 // The only place with colours and sizes, in step with pistachio-fm. Values from design/canvas-source/*.dc.html.
 QtObject {
-    readonly property color bg: "#15170F"
-    readonly property color bgAlt: "#1D2016"
-    readonly property color overlay: "#2A2F1F"
-    readonly property color overlay2: "#39412A"
-    readonly property color muted: "#626F51" // ~3.4:1 on bg: never for small text
-    readonly property color subtext: "#A3B08F"
-    readonly property color text: "#E5E9D8"
-    readonly property color textBright: "#F6F8EF"
-    readonly property color pistachio: "#9FD88A" // active state only
-    readonly property color terracotta: "#DB8267"
-    readonly property color gold: "#E0B15E"
-    readonly property color sageBlue: "#7DA3B3"
-    readonly property color teal: "#7FC9A8"
-    readonly property color lavender: "#AC8ED0"
-    readonly property color clay: "#D9975A"
+    property SharedTheme shared: SharedTheme {}
+    readonly property bool noir: shared.noir
+    readonly property color bg: noir ? "#111111" : "#15170F"
+    readonly property color bgAlt: noir ? "#1A1A1A" : "#1D2016"
+    readonly property color overlay: noir ? "#262626" : "#2A2F1F"
+    readonly property color overlay2: noir ? "#333333" : "#39412A"
+    readonly property color muted: noir ? "#5E5E5E" : "#626F51" // ~3.4:1 on bg: never for small text
+    readonly property color subtext: noir ? "#A6A6A6" : "#A3B08F"
+    readonly property color text: noir ? "#E6E6E6" : "#E5E9D8"
+    readonly property color textBright: noir ? "#F7F7F7" : "#F6F8EF"
+    readonly property color pistachio: noir ? "#BDBDBD" : "#9FD88A" // active state only
+    readonly property color terracotta: noir ? "#C9675C" : "#DB8267"
+    readonly property color gold: noir ? "#D2D2D2" : "#E0B15E"
+    readonly property color sageBlue: noir ? "#B4B4B4" : "#7DA3B3"
+    readonly property color teal: noir ? "#C8C8C8" : "#7FC9A8"
+    readonly property color lavender: noir ? "#BEBEBE" : "#AC8ED0"
+    readonly property color clay: noir ? "#C4C4C4" : "#D9975A"
     // the boards' desktop (#0D0F09) at 66 %, behind dialogs
-    readonly property color scrim: Qt.rgba(13 / 255, 15 / 255, 9 / 255, 0.66)
+    readonly property color scrim: noir ? Qt.rgba(0.043, 0.043, 0.043, 0.66) : Qt.rgba(13 / 255, 15 / 255, 9 / 255, 0.66)
 
     readonly property int tileRadius: 20
     readonly property int panelRadius: 28

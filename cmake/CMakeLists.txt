@@ -27,6 +27,7 @@ qt_add_qml_module(ptx
     URI Pistachio.Text
     VERSION 1.0
     SOURCES
+        src/SharedTheme.h
         src/Document.h src/Document.cpp
         src/Highlighter.h src/Highlighter.cpp
         src/FolderLister.h src/FolderLister.cpp

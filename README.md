@@ -88,3 +88,5 @@ Pistachio Text is licensed under the GNU General Public License v3.0 only. See [
 ## Development note
 
 This app was written with the assistance of Claude Code.
+
+Shared colours (18 November 2026, owner’s call): follows `~/.config/pistachio/shared-theme` (`pistachio` or `noir`) live, including atomic replacements. Respects XDG_CONFIG_HOME; missing or invalid files use Pistachio Noir. The shell publishes the selection.

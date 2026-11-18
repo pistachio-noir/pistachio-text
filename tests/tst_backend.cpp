@@ -2,6 +2,8 @@
 // QT_QPA_PLATFORM=offscreen ./tst_backend
 
 #include "Document.h"
+#include "SharedTheme.h"
+#include <QSaveFile>
 #include "FolderLister.h"
 #include "Highlighter.h"
 
@@ -39,6 +41,35 @@ class TestBackend : public QObject
     Q_OBJECT
 
 private slots:
+    void sharedThemeFollowsAtomicChanges()
+    {
+        QTemporaryDir dir;
+        const auto old = qgetenv("XDG_CONFIG_HOME");
+        qputenv("XDG_CONFIG_HOME", (dir.path() + "/settings").toUtf8());
+        {
+            SharedTheme theme;
+            QVERIFY(!theme.noir());
+            QDir().mkpath(dir.path() + "/settings/pistachio");
+            QTest::qWait(100);
+            const auto path = dir.path() + "/settings/pistachio/shared-theme";
+            auto save = [&](const QByteArray &value) {
+                QSaveFile file(path);
+                QVERIFY(file.open(QIODevice::WriteOnly));
+                file.write(value);
+                QVERIFY(file.commit());
+            };
+            save("noir\n");
+            QTRY_VERIFY(theme.noir());
+            save("pistachio\n");
+            QTRY_VERIFY(!theme.noir());
+            save("noir\n");
+            QTRY_VERIFY(theme.noir());
+            QFile::remove(path);
+            QTRY_VERIFY(!theme.noir());
+        }
+        if (old.isNull()) qunsetenv("XDG_CONFIG_HOME"); else qputenv("XDG_CONFIG_HOME", old);
+    }
+
     void initTestCase()
     {
         QQmlComponent component(&m_engine);

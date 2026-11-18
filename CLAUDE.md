@@ -44,3 +44,5 @@ G-11, G-12, G-13, G-63 (popup focus), G-14 (logging), G-19 (absolute Exec, hicol
 ## Open questions
 
 None. `pistachio-text` isn't in the suite database yet (`pistachio-suite-update`).
+
+Shared colours (18 November 2026, owner’s call): follows `~/.config/pistachio/shared-theme` (`pistachio` or `noir`) live, including atomic replacements. Respects XDG_CONFIG_HOME; missing or invalid files use Pistachio Noir. The shell publishes the selection.
